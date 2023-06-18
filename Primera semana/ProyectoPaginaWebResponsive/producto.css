@@ -1,0 +1,162 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightgray;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 48
+  }
+
+.mobile{
+    display: none;
+}
+
+.escritorio{
+    display: flex;
+}
+
+.producto{
+    display: flex;
+    margin: 5% 25%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,1);
+}
+
+.producto .descripcion{
+    width: 70%;
+}
+
+.producto .descripcion img{
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border-radius: 20px;
+}
+
+
+.producto .descripcion .descripcionProducto{
+    width: 95%;
+    padding: 10px;
+    text-align: justify;
+    color: black;
+}
+
+.informacionCompra{
+    width: 100%;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border-radius: 20px;
+}
+
+.producto .informacionCompra .metodosPago img{
+    width: 70%;
+}
+
+button{
+    width: 60%;
+    font-size: 30px;
+    background-color: yellow;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 20px
+}
+
+button:hover{
+    background-color: rgb(170, 170, 0);
+    cursor: pointer;
+}
+
+input{
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+header{
+    position: sticky;
+    background-color: darkblue;
+    margin: 0 0 5px 0;
+    color: white;
+    justify-content: space-between;
+    display: flex;
+    top: 0;
+}
+
+@media screen and (max-width: 1200px) {
+    nav .escritorio{
+        display: none;
+    }
+
+    nav .mobile{
+        display: block;
+    } 
+
+    nav .mobile .informacionCompra{
+        width: 55%;
+        background-color: white;
+        margin: 5% 20%;
+    }
+
+    nav .mobile .informacionCompra .metodosPago img{
+        width: 70%;
+    }
+
+    nav .mobile .descripcionProducto {
+    width: 55%;
+    padding: 10px;
+    margin-left: 20%;
+    text-align: justify;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border-radius: 20px;
+    }
+}
+
+header{
+    padding: 0 20px;
+    position: sticky;
+    background-color: darkblue;
+    color: white;
+    justify-content: space-between;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    top: 0;
+}
+header a{
+    text-decoration: none;
+    color: white;
+  }
+  
+header  a:hover{
+  color: aqua;
+  }
+  .botones{
+    margin-top: 30px;
+    margin-right: 30px;
+  
+  }
+  header .NombreEmpresa{
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
+    color:black;
+    border-radius: 5px;
+    text-align: center;
+  }

@@ -1,0 +1,94 @@
+body{
+  margin:0;
+  background-color: black;
+}
+
+footer{
+  background-color: darkblue;
+  color: white;
+  justify-self: end;
+  border-bottom: 100px;
+  padding: 40px;
+}
+
+.tienda{
+
+display: flex;
+background-color: lightgrey;
+flex-wrap: wrap;
+
+
+}
+header{
+  padding: 0 20px;
+  position: sticky;
+  background-color: darkblue;
+  color: white;
+  justify-content: space-between;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  top: 0;
+}
+header .NombreEmpresa{
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: white;
+  color:black;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+.botones{
+  margin-top: 30px;
+  margin-right: 30px;
+
+}
+
+
+.producto{
+  background-color: darkblue;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 20;
+  margin: 10px;
+  border-radius: 5px;
+  width: 450px;
+  padding: 15px;
+  border-width: 5px;
+  text-align: center;
+  min-width: 300px;
+}
+
+ a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+color: aqua;
+}
+
+.producto  img{
+  width: 80%;
+  border: 5px;
+  border-radius: 4px;
+}
+
+.producto .nombre{
+  display:block;
+  background-color: yellow;
+  color: black;
+  border: 6px;
+  border-color: black;
+  border-radius: 5px;
+}
+
+.producto .precio{
+  margin: 5px;
+  font-size: 25px;
+}
+
+
