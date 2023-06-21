@@ -4,7 +4,7 @@ Lenguaje utilizado: JavaScript
 Versión: ECMAScript 6
 Hora de elaboración: [hora actual en formato de 24 horas]
 Fecha de elaboración: [fecha actual]
-Elaborado por Ing. Jorge Luis López Grajales y Ing. Juan David Cespedez Mendoza
+Elaborado por Ing(c) Jorge Luis López Grajales y Ing(c) Juan David Cespedez Mendoza
 Universidad Tecnológica de Pereira
 Carrera: Ingeniería de Sistemas y Computación
 Dirigido al Doctor Ricardo Moreno Laverde
