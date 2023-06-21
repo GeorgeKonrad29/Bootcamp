@@ -1,0 +1,857 @@
+:root {
+    --bg: #999;
+    
+    --space: #363640;
+    --space-darker: #25232b;
+    
+    --sun: #F2BC46;
+    --sun-trans: rgba(242, 188, 70, 0.3);
+    
+    --venus-1: #e5875f;
+    --venus-2: #c2643c;
+    --venus-3: #D1734B;
+    --venus-4: #ea8c64;
+    --venus-5: #c76941;
+    
+    --mercury: #76777A;
+    --mercury-darker: #626366;
+    
+    --earth-blue: #496282;
+    --earth-green: #5E8249;
+    
+    --mars: #C25447;
+    --mars-darker: #9e453c;
+  
+    --jupiter-1: #e89e6a;
+    --jupiter-2: #E89150;
+    --jupiter-3: #D16F1B;
+  
+    --saturn: #D1AA5E;
+    --saturn-darker: #a98236;
+  
+    --uranus: #9DB1BF;
+    --uranus-darker: #7c8c96;
+  
+    --neptune: #5870A8;
+    --neptune-darker: #43537a;
+  
+    --pluto: #805F47;
+    --pluto-darker: #604735;
+    --pluto-2: #723831;
+    
+    --white: #f0f0f0;
+    --white-trans: rgba(240, 240, 240, 0.75);
+    
+    --black: #222; 
+    
+    --size1: 0.75px;
+    --size2: 1px;
+  }
+  
+  body {
+    font-family: 'Lato', arial;
+    font-weight: 300;
+    color: var(--white);
+    height: 100vh;
+    margin: 0;
+    width: 100vw;
+  }
+  
+  h2 {
+    color: var(--space);
+    margin: 15px 0;
+    text-align: center;
+  }
+  
+  p {
+    font-size: 16px;
+    margin: 15px 0 0 0;
+    text-align: center;
+  }
+  
+  input {
+    display: none;
+  }
+  
+  .container {
+    background-color: var(--bg);
+    display: grid;
+    grid-gap: 2vh 2vh;
+    grid-template: repeat(4, calc(25% - 2vh)) / repeat(5, calc(20% - 2vh));
+    justify-items: center;
+    padding: 2vh 0 0 2vh;
+    width: calc(100% - 2vh);
+  }
+  
+  .card {
+    background-color: var(--space);
+    border-radius: 20px;
+    cursor: pointer;
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+  
+  .card .card__front:hover {
+    background-color: var(--space-darker);
+  }
+  
+  .card__front {
+    border-radius: 20px;
+    height: 100%;
+    position: relative;
+    transition: background-color 0.5s;
+    z-index: 1;
+  }
+  
+  .card__back {
+    align-items: center;
+    background-color: var(--space);
+    border-radius: 20px;
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    position: relative;
+    transition: background-color 0.5s;
+    width: 100%;
+    z-index: 2;
+  }
+  
+  /* click actions */
+  #sun1:checked + #sun2:checked ~ .card--sun1 .card__back .sun,
+  #sun1:checked + #sun2:checked ~ .card--sun2 .card__back .sun,
+  #mercury1:checked + #mercury2:checked ~ .card--mercury1 .card__back .mercury,
+  #mercury1:checked + #mercury2:checked ~ .card--mercury2 .card__back .mercury,
+  #venus1:checked + #venus2:checked ~ .card--venus1 .card__back .venus,
+  #venus1:checked + #venus2:checked ~ .card--venus2 .card__back .venus,
+  #earth1:checked + #earth2:checked ~ .card--earth1 .card__back .earth,
+  #earth1:checked + #earth2:checked ~ .card--earth2 .card__back .earth,
+  #mars1:checked + #mars2:checked ~ .card--mars1 .card__back .mars,
+  #mars1:checked + #mars2:checked ~ .card--mars2 .card__back .mars,
+  #jupiter1:checked + #jupiter2:checked ~ .card--jupiter1 .card__back .jupiter,
+  #jupiter1:checked + #jupiter2:checked ~ .card--jupiter2 .card__back .jupiter,
+  #saturn1:checked + #saturn2:checked ~ .card--saturn1 .card__back .saturn,
+  #saturn1:checked + #saturn2:checked ~ .card--saturn2 .card__back .saturn,
+  #neptune1:checked + #neptune2:checked ~ .card--neptune1 .card__back .neptune,
+  #neptune1:checked + #neptune2:checked ~ .card--neptune2 .card__back .neptune,
+  #uranus1:checked + #uranus2:checked ~ .card--uranus1 .card__back .uranus,
+  #uranus1:checked + #uranus2:checked ~ .card--uranus2 .card__back .uranus,
+  #pluto1:checked + #pluto2:checked ~ .card--pluto1 .card__back .pluto,
+  #pluto1:checked + #pluto2:checked ~ .card--pluto2 .card__back .pluto {
+      animation: shakeIt 1.2s linear 1;
+  }
+  
+  
+  #sun1:checked + #sun2:checked ~ .card--sun1 .card__back,
+  #sun1:checked + #sun2:checked ~ .card--sun2 .card__back,
+  #mercury1:checked + #mercury2:checked ~ .card--mercury1 .card__back,
+  #mercury1:checked + #mercury2:checked ~ .card--mercury2 .card__back,
+  #venus1:checked + #venus2:checked ~ .card--venus1 .card__back,
+  #venus1:checked + #venus2:checked ~ .card--venus2 .card__back,
+  #earth1:checked + #earth2:checked ~ .card--earth1 .card__back,
+  #earth1:checked + #earth2:checked ~ .card--earth2 .card__back,
+  #mars1:checked + #mars2:checked ~ .card--mars1 .card__back,
+  #mars1:checked + #mars2:checked ~ .card--mars2 .card__back,
+  #jupiter1:checked + #jupiter2:checked ~ .card--jupiter1 .card__back,
+  #jupiter1:checked + #jupiter2:checked ~ .card--jupiter2 .card__back,
+  #saturn1:checked + #saturn2:checked ~ .card--saturn1 .card__back,
+  #saturn1:checked + #saturn2:checked ~ .card--saturn2 .card__back,
+  #neptune1:checked + #neptune2:checked ~ .card--neptune1 .card__back,
+  #neptune1:checked + #neptune2:checked ~ .card--neptune2 .card__back,
+  #uranus1:checked + #uranus2:checked ~ .card--uranus1 .card__back,
+  #uranus1:checked + #uranus2:checked ~ .card--uranus2 .card__back,
+  #pluto1:checked + #pluto2:checked ~ .card--pluto1 .card__back,
+  #pluto1:checked + #pluto2:checked ~ .card--pluto2 .card__back {
+      background-color: var(--space-darker);
+  }
+  
+  #sun1:checked ~ .card--sun1 .card__front,
+  #sun2:checked ~ .card--sun2 .card__front,
+  #mercury1:checked ~ .card--mercury1 .card__front,
+  #mercury2:checked ~ .card--mercury2 .card__front,
+  #venus1:checked ~ .card--venus1 .card__front,
+  #venus2:checked ~ .card--venus2 .card__front,
+  #earth1:checked ~ .card--earth1 .card__front,
+  #earth2:checked ~ .card--earth2 .card__front,
+  #mars1:checked ~ .card--mars1 .card__front,
+  #mars2:checked ~ .card--mars2 .card__front,
+  #jupiter1:checked ~ .card--jupiter1 .card__front,
+  #jupiter2:checked ~ .card--jupiter2 .card__front,
+  #saturn1:checked ~ .card--saturn1 .card__front,
+  #saturn2:checked ~ .card--saturn2 .card__front,
+  #neptune1:checked ~ .card--neptune1 .card__front,
+  #neptune2:checked ~ .card--neptune2 .card__front,
+  #uranus1:checked ~ .card--uranus1 .card__front,
+  #uranus2:checked ~ .card--uranus2 .card__front,
+  #pluto1:checked ~ .card--pluto1 .card__front,
+  #pluto2:checked ~ .card--pluto2 .card__front {
+    display: none;
+  }
+  
+  #sun1:checked ~ .card--sun1 .card__back,
+  #sun2:checked ~ .card--sun2 .card__back,
+  #mercury1:checked ~ .card--mercury1 .card__back,
+  #mercury2:checked ~ .card--mercury2 .card__back,
+  #venus1:checked ~ .card--venus1 .card__back,
+  #venus2:checked ~ .card--venus2 .card__back,
+  #earth1:checked ~ .card--earth1 .card__back,
+  #earth2:checked ~ .card--earth2 .card__back,
+  #mars1:checked ~ .card--mars1 .card__back,
+  #mars2:checked ~ .card--mars2 .card__back,
+  #jupiter1:checked ~ .card--jupiter1 .card__back,
+  #jupiter2:checked ~ .card--jupiter2 .card__back,
+  #saturn1:checked ~ .card--saturn1 .card__back,
+  #saturn2:checked ~ .card--saturn2 .card__back,
+  #neptune1:checked ~ .card--neptune1 .card__back,
+  #neptune2:checked ~ .card--neptune2 .card__back,
+  #uranus1:checked ~ .card--uranus1 .card__back,
+  #uranus2:checked ~ .card--uranus2 .card__back,
+  #pluto1:checked ~ .card--pluto1 .card__back,
+  #pluto2:checked ~ .card--pluto2 .card__back {
+    display: flex;
+  }
+  
+  #sun1:checked + #sun2:checked + #mercury1:checked + #mercury2:checked + #venus1:checked + #venus2:checked + #earth1:checked + #earth2:checked + #mars1:checked + #mars2:checked + #jupiter1:checked + #jupiter2:checked + #saturn1:checked + #saturn2:checked + #neptune1:checked + #neptune2:checked + #uranus1:checked + #uranus2:checked + #pluto1:checked + #pluto2:checked ~ .win-wrapper {
+    display: flex;
+  }
+  
+  /* general animations for all planets, sun and pluto (is it a planet? :p) */
+  @keyframes shakeIt {
+    0% { transform: translateY(0); z-index: 2; }
+    25% { transform: translateY(-5px); z-index: 2; }
+    75% { transform: translateY(5px); z-index: 2; }
+    0% { transform: translateY(0); z-index: 2; }
+  }
+  
+  /* pluto */
+  .pluto {
+    background-color: var(--pluto);
+    box-shadow: inset -3px -3px var(--pluto-darker);
+    border-radius: 100%;
+    height: 10vh;
+    position: relative;
+    width: 10vh;
+  }
+  
+  .pluto:before {
+    background-color: var(--pluto-2);
+    border-radius: 100% 70% 100% 70%;
+    content: '';
+    height: 30%;
+    left: 45%;
+    opacity: 0.8;
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    transform: rotate(-50deg);
+  }
+  
+  .pluto:after {
+    background-color: var(--pluto-2);
+    border-radius: 100% 70% 100% 70%;
+    content: '';
+    height: 10%;
+    left: 15%;
+    opacity: 0.8;
+    position: absolute;
+    top: 20%;
+    width: 10%;
+  }
+  
+  /* neptune */
+  .neptune {
+    background-color: var(--neptune);
+    box-shadow: inset -3px -3px var(--neptune-darker);
+    border-radius: 100%;
+    height: 10vh;
+    position: relative;
+    width: 10vh;
+  }
+  
+  /* uranus */
+  .uranus {
+    background-color: var(--uranus);
+    box-shadow: inset -3px -3px var(--uranus-darker);
+    border-radius: 100%;
+    height: 10vh;
+    position: relative;
+    width: 10vh;
+  }
+  
+  /* saturn */
+  .saturn {
+    background-color: var(--saturn);
+    box-shadow: inset -3px -3px var(--saturn-darker);
+    border-radius: 100%;
+    height: 8vh;
+    position: relative;
+    width: 8vh;
+  }
+  
+  .saturn:before {
+    background-color: transparent;
+    border-top: 8px solid var(--saturn-darker);
+    border-right: 8px solid var(--saturn-darker);
+    border-radius: 100% 70% 100% 70%;
+    content: '';
+    height: 70%;
+    position: absolute;
+    width: 70%;
+    transform: rotate(-45deg) skew(65deg);
+    z-index: -1;
+  }
+  
+  .saturn:after {
+    background-color: transparent;
+    border-bottom: 8px solid var(--saturn-darker);
+    border-left: 8px solid var(--saturn-darker);
+    border-radius: 100% 70% 100% 70%;
+    content: '';
+    height: 70%;
+    position: absolute;
+    width: 70%;
+    transform: rotate(-45deg) skew(65deg);
+  }
+  
+  /* jupiter */
+  .jupiter {
+    background: linear-gradient(var(--jupiter-2) 5px, var(--jupiter-1) 10px, var(--jupiter-3) 30px, var(--jupiter-1) 50px, var(--jupiter-3) 55px, var(--jupiter-1) 70px, var(--jupiter-2) 75px);
+    border-radius: 100%;
+    height: 10vh;
+    position: relative;
+    width: 10vh;
+  }
+  
+  /* mars */
+  .mars {
+    background-color: var(--mars);
+    border-radius: 100%;
+    box-shadow: inset -3px -3px var(--mars-darker);
+    height: 10vh;
+    position: relative;
+    width: 10vh;
+  }
+  
+  .mars:before {
+    background-color: var(--mars-darker);
+    border-radius: 100%;
+    content: '';
+    height: 20%;
+    left: 15%;
+    position: absolute;
+    top: 20%;
+    width: 20%;
+  }
+  
+  .mars:after {
+    background-color: var(--mars-darker);
+    border-radius: 100%;
+    content: '';
+    height: 25%;
+    left: 47%;
+    position: absolute;
+    top: 55%;
+    width: 25%;
+  }
+  
+  /* earth */
+  .earth {
+    background-color: var(--earth-blue);
+    border-radius: 100%;
+    box-shadow: inset -3px -3px var(--earth-blue) - 15;
+    border-radius: 100%;
+    height: 10vh;
+    position: relative;
+    width: 10vh;
+  }
+  
+  .earth:before {
+    background-color: var(--earth-green);
+    border-radius: 100% 70% 100% 70%;
+    content: '';
+    height: 55%;
+    left: 8%;
+    position: absolute;
+    top: 40%;
+    width: 30%;
+    transform: rotate(-40deg);
+  }
+  
+  .earth:after {
+    background-color: var(--earth-green);
+    border-radius: 100% 70% 100% 70%;
+    content: '';
+    height: 20%;
+    left: 50%;
+    position: absolute;
+    top: 7%;
+    width: 20%;
+    transform: rotate(-45deg);
+  }
+  
+  /* venus */
+  .venus {
+    animation: venusJump 2.82s -2s linear infinite;
+    background: linear-gradient(var(--venus-1) 5px, var(--venus-2) 15px, var(--venus-3) 25px, var(--venus-4) 40px, var(--venus-5) 45px);
+    border-radius: 100%;
+    height: 10vh;
+    transform: rotate(30deg);
+    width: 10vh;
+  }
+  
+  /* mercury */
+  .mercury {
+    background-color: var(--mercury);
+    border-radius: 100%;
+    box-shadow: inset -3px -3px var(--mercury-darker);
+    height: 10vh;
+    position: relative;
+    width: 10vh;
+  }
+  
+  .mercury:before {
+    background-color: var(--mercury-darker);
+    border-radius: 100%;
+    content: '';
+    height: 10%;
+    left: 50%;
+    position: absolute;
+    top: 15%;
+    width: 10%;
+   }
+   
+  .mercury:after {
+    background-color: var(--mercury-darker);
+    border-radius: 100%;
+    content: '';
+    height: 17%;
+    left: 15%;
+    position: absolute;
+    top: 50%;
+    width: 17%;
+  }
+  
+  /* sun */
+  .sun {
+    background-color: var(--sun);
+    border-radius: 100%;
+    box-shadow: 0px 0px 5px 0.75vh var(--sun-trans);
+    height: 10vh;
+    opacity: 0.8;
+    width: 10vh;
+    animation: sunShine 3s linear infinite;
+  }
+  
+  @keyframes sunShine {
+    0% { box-shadow: 0px 0px 5px 0.75vh var(--sun-trans); }  
+    50% { box-shadow: 0px 0px 5px 0.75vh transparent; }
+    100% { box-shadow: 0px 0px 5px 0.75vh var(--sun-trans); }
+  }
+  
+  /* stars */
+  .star {
+    background-color: var(--white);
+    box-shadow: 1px 1px 2px var(--white-trans);
+    position: absolute;
+  }
+  
+  .s1 {
+    height: var(--size1);
+    left: 10%;
+    top: 15%;
+    width: var(--size1);
+    animation: shineStar 2.5s linear infinite;
+  }
+  
+  .s2 {
+    height: var(--size1);
+    left: 80%;
+    top: 20%;
+    width: var(--size2);
+    animation: shineStar 2.5s -0.5s linear infinite;
+  }
+  
+  .s3 {
+    height: var(--size2);
+    left: 40%;
+    top: 10%;
+    width: var(--size2);
+    animation: shineStar 3.5s -9.32s linear infinite;
+  }
+  
+  .s4 {
+    height: var(--size1);
+    left: 90%;
+    top: 50%;
+    width: var(--size1);
+    animation: shineStar 3.5s 0.89s linear infinite;
+  }
+  
+  .s5 {
+    height: var(--size1);
+    left: 17%;
+    top: 30%;
+    width: var(--size2);
+    animation: shineStar 4.5s -3.21s linear infinite;
+  }
+  
+   .s6 {
+    height: var(--size2);
+    left: 14%;
+    top: 92%;
+    width: var(--size2);
+    animation: shineStar 5s -2.98s linear infinite;
+  } 
+  
+  .s7 {
+    height: var(--size1);
+    left: 45%;
+    top: 35%;
+    width: var(--size1);
+    animation: shineStar 5.2s 1s linear infinite;
+  }
+  
+  .s8 {
+    height: var(--size1);
+    left: 71%;
+    top: 82%;
+    width: var(--size2);
+    animation: shineStar 4.53s -1.39s linear infinite;
+  }
+  
+  .s9 {
+    height: var(--size2);
+    left: 77%;
+    top: 67%;
+    width: var(--size2);
+    animation: shineStar 4.22s 3.21s linear infinite;
+  }
+  
+  .s10 {
+    height: var(--size1);
+    left: 68%;
+    top: 40%;
+    width: var(--size1);
+    animation: shineStar 3.84s -0.78s linear infinite;
+  }
+  
+  .s11 {
+    height: var(--size1);
+    left: 20%;
+    top: 75%;
+    width: var(--size2);
+    animation: shineStar 3.21s -1.34s linear infinite;
+  }
+  
+  .s12 {
+    height: var(--size2);
+    left: 34%;
+    top: 44%;
+    width: var(--size2);
+    animation: shineStar 4.45s 2.32s linear infinite;
+  }
+  
+  .s13 {
+    height: var(--size1);
+    left: 55%;
+    top: 60%;
+    width: var(--size1);
+    animation: shineStar 2.96s -0.82s linear infinite;
+  }
+  
+  .s14 {
+    height: var(--size1);
+    left: 92%;
+    top: 84%;
+    width: var(--size2);
+    animation: shineStar 3.13s -0.13s linear infinite;
+  }
+  
+  .s15 {
+    height: var(--size2);
+    left: 25%;
+    top: 85%;
+    width: var(--size2);
+    animation: shineStar 4.39s -0.63s linear infinite;
+  }
+  
+  /* win section */
+  .win-wrapper {
+    align-items: center;
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    position: fixed;
+    width: 100vw;
+    z-index: 2;
+  }
+  
+  .happy-earth {
+    margin: auto;
+  }
+  
+  .eye {
+    background-color: var(--black);
+    border-radius: 100%;
+    height: 10%;
+    position: absolute;
+    top: 35%;
+    width: 10%;
+  }
+  
+  .eye.left {
+    left: 25%;
+  }
+   
+  .eye.right {
+    right: 25%;
+  }
+    
+  .eye:after {
+    background-color: var(--white);
+    border-radius: 100%;
+    content: '';
+    height: 2px;
+    position: absolute;
+    width: 2px;  
+  }
+  
+  .mouth {
+    border-bottom: 2px solid var(--black);
+    border-radius: 100%;
+    bottom: 25%;
+    height: 30%;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    width: 35%;
+  }
+  
+  .win-content {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 50px;
+    text-align: center;
+  }
+  
+  /* media queries */
+  @media (min-width: 768px) {
+    .container {
+      height: calc(100% - 2vh); 
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+    
+     /* each grid element */
+    .card--sun1 {
+      grid-area: 4 / 4 / 5 / 5;
+    }
+  
+    .card--sun2 {
+      grid-area: 1 / 3 / 2 / 3;
+    }
+  
+    .card--mercury1 {
+      grid-area: 4 / 1 / 5 / 2;
+    }
+  
+    .card--mercury2 {
+      grid-area: 3 / 4 / 4 / 5;
+    }
+  
+    .card--venus1 {
+      grid-area: 2 / 4 / 3 / 5;
+    }
+  
+    .card--venus2 {
+      grid-area: 3 / 2 / 4 / 3;
+    }
+  
+    .card--earth1 {
+      grid-area: 1 / 5 / 2 / 5;
+    }
+  
+    .card--earth2 {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+  
+    .card--mars1 {
+      grid-area: 4 / 5 / 4 / 5;
+    }
+  
+    .card--mars2 {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+  
+    .card--jupiter1 {
+      grid-area: 1 / 4 / 2 / 5;
+    }
+  
+    .card--jupiter2 {
+      grid-area: 4 / 3 / 5 / 4;
+    }
+  
+    .card--saturn1 {
+      grid-area: 3 / 1 / 4 / 2;
+    }
+  
+    .card--saturn2 {
+      grid-area: 3 / 5 / 4 / 5;
+    }
+  
+    .card--uranus1 {
+      grid-area: 3 / 3 / 4 / 4;
+    }
+  
+    .card--uranus2 {
+      grid-area: 2 / 3 / 3 / 4;
+    }
+  
+    .card--neptune1 {
+      grid-area: 2 / 5 / 3 / 5;
+    }
+  
+    .card--neptune2 {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+  
+    .card--pluto1 {
+      grid-area: 4 / 2 / 5 / 3;
+    }
+  
+    .card--pluto2 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+  }
+  
+  @media (min-width: 992px) {
+       /* each grid element */
+    .card--mercury2 {
+      grid-area: 4 / 4 / 5 / 5;
+    }
+  
+    .card--sun2 {
+      grid-area: 1 / 3 / 2 / 3;
+    }
+  
+    .card--mercury1 {
+      grid-area: 4 / 1 / 5 / 2;
+    }
+  
+    .card--saturn1 {
+      grid-area: 3 / 4 / 4 / 5;
+    }
+  
+    .card--pluto2 {
+      grid-area: 2 / 4 / 3 / 5;
+    }
+  
+    .card--venus1 {
+      grid-area: 3 / 2 / 4 / 3;
+    }
+  
+    .card--sun1 {
+      grid-area: 1 / 5 / 2 / 5;
+    }
+  
+    .card--uranus2 {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+  
+    .card--neptune2 {
+      grid-area: 4 / 5 / 4 / 5;
+    }
+  
+    .card--mars2 {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+  
+    .card--jupiter1 {
+      grid-area: 1 / 4 / 2 / 5;
+    }
+  
+    .card--mars1 {
+      grid-area: 4 / 3 / 5 / 4;
+    }
+  
+    .card--uranus1 {
+      grid-area: 3 / 1 / 4 / 2;
+    }
+  
+    .card--jupiter2 {
+      grid-area: 3 / 5 / 4 / 5;
+    }
+  
+    .card--neptune1 {
+      grid-area: 3 / 3 / 4 / 4;
+    }
+  
+    .card--earth2 {
+      grid-area: 2 / 3 / 3 / 4;
+    }
+  
+    .card--venus2 {
+      grid-area: 2 / 5 / 3 / 5;
+    }
+  
+    .card--pluto1 {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+  
+    .card--saturn2 {
+      grid-area: 4 / 2 / 5 / 3;
+    }
+  
+    .card--earth1 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .container {
+      grid-template: repeat(20, calc(5% - 2vh))/ calc(100% - 2vh);
+    }
+    
+    .card {
+      height: 20vh;
+    }
+  }
+   #sun1:checked + #sun2:checked ~ .card--sun1, 
+#sun1:checked + #sun2:checked ~ .card--sun2,
+#mercury1:checked + #mercury2:checked ~ .card--mercury1 ,
+#mercury1:checked + #mercury2:checked ~ .card--mercury2 ,
+#venus1:checked + #venus2:checked ~ .card--venus1 ,
+#venus1:checked + #venus2:checked ~ .card--venus2 ,
+#earth1:checked + #earth2:checked ~ .card--earth1 ,
+#earth1:checked + #earth2:checked ~ .card--earth2 ,
+#mars1:checked + #mars2:checked ~ .card--mars1 ,
+#mars1:checked + #mars2:checked ~ .card--mars2 ,
+#jupiter1:checked + #jupiter2:checked ~ .card--jupiter1 ,
+#jupiter1:checked + #jupiter2:checked ~ .card--jupiter2 ,
+#saturn1:checked + #saturn2:checked ~ .card--saturn1 ,
+#saturn1:checked + #saturn2:checked ~ .card--saturn2 ,
+#neptune1:checked + #neptune2:checked ~ .card--neptune1 ,
+#neptune1:checked + #neptune2:checked ~ .card--neptune2 ,
+ #uranus1:checked + #uranus2:checked ~ .card--uranus1 ,
+#uranus1:checked + #uranus2:checked ~ .card--uranus2 , 
+#pluto1:checked + #pluto2:checked ~ .card--pluto1 ,
+#pluto1:checked + #pluto2:checked ~ .card--pluto2  {
+   /*animar y no dejar interactuar con la carta*/
+   animation: shakeIt 0.5s linear infinite;
+    pointer-events: none;
+}
+
+#earth1:checked + #mars1:checked + #earth2:not(:checked) ~ .card .pluto,
+#earth2:checked + #mars1:checked + #earth1:not(:checked) ~ .card .pluto,
+#earth1:checked + #mars2:checked + #earth2:not(:checked) ~ .card .pluto,
+#earth2:checked + #mars2:checked + #earth1:not(:checked) ~ .card .pluto,
+#earth1:checked + #mars1:checked + #earth2:not(:checked) ~ .card .pluto,
+#earth2:checked + #mars1:checked + #earth1:not(:checked) ~ .card .pluto,
+#earth1:checked + #mars2:checked + #earth2:not(:checked) ~ .card .pluto,
+#earth2:checked + #mars2:checked + #earth1:not(:checked) ~ .card .pluto{
+    pointer-events: none;
+}
