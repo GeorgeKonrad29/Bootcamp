@@ -1,7 +1,8 @@
 /*
+v 1.0
 Lenguaje utilizado: JavaScript
 Versión: ECMAScript 6
-Hora de elaboración: 15:30
+Hora de elaboración: 18:30
 Fecha de elaboración: 20 de junio de 2023
 Elaborado por Ing. Jorge Luis López Grajales y Ing. Juan David Cespedez Mendoza
 Universidad Tecnológica de Pereira

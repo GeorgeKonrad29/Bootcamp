@@ -1,4 +1,5 @@
 /*
+v 1.0
 Lenguaje utilizado: JavaScript
 Versión: ECMAScript 6
 Hora de elaboración: [hora actual en formato de 24 horas]
